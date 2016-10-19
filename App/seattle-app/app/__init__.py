@@ -14,8 +14,8 @@ app = Flask(__name__)
 app.config.from_object("app.config")
 
 # unpickle my model
-estimator = joblib.load('models/iris_model.pkl')
-target_names = ['setosa', 'versicolor', 'virginica']
+estimator = joblib.load('models/time_model.pkl')
+target_names = ['Short', 'Long']
 
 
 from .views import *   # flake8: noqa

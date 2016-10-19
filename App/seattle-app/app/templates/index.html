@@ -3,7 +3,7 @@
 
 {% block body %}
   <section class="header">
-    <h2 class="title">IRIS Flower Prediction!</h2>
+    <h2 class="title">Seattle False Alarm Alert!</h2>
   </section>
   <hr />
 
@@ -12,7 +12,7 @@
       {{ form.hidden_tag() }}
       <div class="row">
         <div class="three columns">
-          {{ form.sepal_length.label }} {{ form.sepal_length() }}
+          {{ form.HR.label }} {{ form.HR() }}
         </div>
         <div class="three columns">
           {{ form.sepal_width.label }} {{ form.sepal_width() }}
@@ -31,7 +31,7 @@
     {% if prediction %}
       <div class="row">
         <div class="six columns">
-          <h2>It is a {{ prediction }}</h2>
+          <h2>The clearance time is {{ prediction }}</h2>
           <img src="{{url_for('static', filename='images/iris_' + prediction + '.jpg')}}"
               height="300"
           />

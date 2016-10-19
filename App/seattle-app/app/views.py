@@ -13,10 +13,10 @@ logger = logging.getLogger('app')
 
 class PredictForm(Form):
     """Fields for Predict"""
-    sepal_length = fields.DecimalField('Sepal Length:', places=2, validators=[Required()])
-    sepal_width = fields.DecimalField('Sepal Width:', places=2, validators=[Required()])
-    petal_length = fields.DecimalField('Petal Length:', places=2, validators=[Required()])
-    petal_width = fields.DecimalField('Petal Width:', places=2, validators=[Required()])
+    HR = fields.DecimalField('HR:', places=2, validators=[Required()])
+    sepal_width = fields.DecimalField('D:', places=2, validators=[Required()])
+    petal_length = fields.DecimalField('R:', places=2, validators=[Required()])
+    petal_width = fields.DecimalField('J:', places=2, validators=[Required()])
 
     submit = fields.SubmitField('Submit')
 
@@ -32,13 +32,13 @@ def index():
         submitted_data = form.data
 
         # Retrieve values from form
-        sepal_length = float(submitted_data['sepal_length'])
+        HR = float(submitted_data['HR'])
         sepal_width = float(submitted_data['sepal_width'])
         petal_length = float(submitted_data['petal_length'])
         petal_width = float(submitted_data['petal_width'])
 
         # Create array from values
-        flower_instance = [sepal_length, sepal_width, petal_length, petal_width]
+        flower_instance = [HR, sepal_width, petal_length, petal_width]
 
         my_prediction = estimator.predict(flower_instance)
         # Return only the Predicted iris species
