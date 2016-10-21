@@ -13,6 +13,8 @@ logger = logging.getLogger('app')
 
 class PredictForm(Form):
     """Fields for Predict"""
+    myChoices = [(1, "one"), (2, "two"), (3, "three")]
+    choices = fields.SelectField("My Choices", choices=myChoices)
     HR = fields.DecimalField('HR:', places=2, validators=[Required()])
     sepal_width = fields.DecimalField('D:', places=2, validators=[Required()])
     petal_length = fields.DecimalField('R:', places=2, validators=[Required()])

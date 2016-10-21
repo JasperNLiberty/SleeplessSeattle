@@ -3,31 +3,40 @@
 
 {% block body %}
   <section class="header">
-    <h2 class="title">Seattle False Alarm Alert!</h2>
+    <h2 class="title">Seattle Call prioritization</h2>
   </section>
   <hr />
 
   <div class="content">
-    <form method="POST">
-      {{ form.hidden_tag() }}
+
+    <form action=" index.html " method="POST">
+        
+
+
+
+        <div class="row">
+          <div class="three columns">
+            {{ form.month.label }} {{ form.month() }}
+          </div>
+          <div class="three columns">
+            {{ form.day.label }} {{ form.day() }}
+          </div>
+          <div class="three columns">
+            {{ form.time.label }} {{ form.time() }}
+          </div>
+          <div class="three columns">
+            {{ form.loc.label }} {{ form.loc() }}
+          </div>
+        </div>
+
+  
       <div class="row">
         <div class="three columns">
-          {{ form.HR.label }} {{ form.HR() }}
+          <button type="submit" class="button-primary">Submit</button>
         </div>
-        <div class="three columns">
-          {{ form.sepal_width.label }} {{ form.sepal_width() }}
-        </div>
-        <div class="three columns">
-          {{ form.petal_length.label }} {{ form.petal_length() }}
-        </div>
-        <div class="three columns">
-          {{ form.petal_width.label }} {{ form.petal_width() }}
-        </div>
-      </div>
-      <div class="row">
-        <button type="submit" class="button-primary">Submit</button>
       </div>
     </form>
+
     {% if prediction %}
       <div class="row">
         <div class="six columns">
