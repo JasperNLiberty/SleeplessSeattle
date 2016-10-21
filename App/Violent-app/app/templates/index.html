@@ -9,11 +9,8 @@
 
   <div class="content">
 
-    <form action=" index.html " method="POST">
-        
-
-
-
+    <form method="POST">
+      {{ form.hidden_tag() }}
         <div class="row">
           <div class="three columns">
             {{ form.month.label }} {{ form.month() }}
@@ -40,7 +37,7 @@
     {% if prediction %}
       <div class="row">
         <div class="six columns">
-          <h2>The clearance time is {{ prediction }}</h2>
+          <h2>The call is {{ prediction }}</h2>
           <img src="{{url_for('static', filename='images/iris_' + prediction + '.jpg')}}"
               height="300"
           />

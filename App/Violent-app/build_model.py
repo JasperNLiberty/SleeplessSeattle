@@ -13,23 +13,26 @@ from sklearn.metrics import roc_curve
 from sklearn.metrics import auc
 
 
-pd.set_option("display.max_columns",101)
+#pd.set_option("display.max_columns",101)
 
 
 
 if __name__ == "__main__":
         # Load Iris Data
-        	
-        with open('dfs.pkl', 'r') as f:
-    		dfs = pickle.load(f)
+        
+        with open('columns.pkl', 'r') as f:
+            columns = pickle.load(f)
 
-        X = dfs[['TimeOfDay', 'R', 'J', 'B']] #, 'C', 'N', 'K', 'Q', 'M', 'U','E','D','F','L','G','W','O','S','99']]
-        y = dfs['Burden']
 
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.3, random_state = 4444)
+        X = pd.read_csv("violent_df.csv")
+        X=X.iloc[:,1:]
+        
+        y = pd.read_csv("violent_target.csv", names = ["Target"])
 
-        logreg = LogisticRegression()
-        logreg.fit(X_train, y_train)
+        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=4444)
+
+        logit = LogisticRegression(class_weight = 'balanced')
+        logit.fit(X_train, y_train)
 
         #iris_data = load_iris()
         #features = iris_data.data
@@ -40,4 +43,4 @@ if __name__ == "__main__":
         #knn = KNeighborsClassifier(n_neighbors=3)  # replace with your own ML model here
         #knn.fit(features, target)
 
-        joblib.dump(logreg, 'models/time_model.pkl')
+        joblib.dump(logit, 'models/violent_model.pkl')
