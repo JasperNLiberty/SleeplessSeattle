@@ -1,9 +1,11 @@
-
+  
 {% extends 'base.html' %}
 
 {% block body %}
   <section class="header">
-    <h2 class="title">Seattle Call prioritization</h2>
+    <center>
+      <h2 class="title">Seattle Violence Prediction!</h2>
+    </center>
   </section>
   <hr />
 
@@ -28,20 +30,24 @@
 
   
       <div class="row">
-        <div class="three columns">
+        
+         <center>
           <button type="submit" class="button-primary">Submit</button>
-        </div>
+         </center>
+        
       </div>
     </form>
 
     {% if prediction %}
       <div class="row">
-        <div class="six columns">
-          <h2>The call is {{ prediction }}</h2>
-          <img src="{{url_for('static', filename='images/iris_' + prediction + '.jpg')}}"
+        
+          <center> <h2>The call is likely to be about a {{ prediction }} crime!</h2> </center>
+          <center>
+            <img src="{{url_for('static', filename='images/vio_' + prediction + '.png')}}"
               height="300"
-          />
-        </div>
+            />
+          </center>
+        
         <div class="six columns">
          <!--  Your Chart or any other form of visualizations -->
          <div id="chart"></div>

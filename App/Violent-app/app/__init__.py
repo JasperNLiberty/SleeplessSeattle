@@ -15,7 +15,7 @@ app.config.from_object("app.config")
 
 # unpickle my model
 estimator = joblib.load('models/violent_model.pkl')
-target_names = ['not high priority!', 'high priority!']
+target_names = ['non-violent', 'violent']
 
 
 from .views import *   # flake8: noqa
